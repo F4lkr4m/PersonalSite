@@ -4,6 +4,7 @@ import Icon from '@ant-design/icons';
 import { ReactComponent as brackets } from '@/assets/window-code.svg';
 import Title from 'antd/es/typography/Title';
 import { H4_LEVEL } from '@/constants';
+import { H3_LEVEL } from '../constants';
 
 
 const { Header } = Layout;
@@ -34,7 +35,7 @@ export const AppHeader = () => {
             component={brackets}
           />
           <Title
-            level={H4_LEVEL}
+            level={H3_LEVEL}
             style={headerTitleStyle}
           >
             Сергей Щербаков

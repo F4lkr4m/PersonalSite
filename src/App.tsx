@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from 'antd'
 import { DESKTOP_DISPLAY_WIDTH } from '@/constants';
-import { AppHeader, AppContent, AppFooter, PhotoBackground } from '@/components';
+import { AppHeader, AppContent, AppFooter, PhotoBackground, PhotoCard, TextImageLayout } from '@/components';
 import workspace from '@/assets/workspace.jpg';
 
 
@@ -24,6 +24,26 @@ const App = () => {
           <PhotoBackground 
             src={workspace}
             title="Как-то супермега крутой заголовок, хватающий за душу"
+          />
+          <PhotoCard 
+            src={workspace}
+            preview={false}
+          />
+          <TextImageLayout 
+            text="Какой-то текст содержащий описание или еще что то типа, что может быть полезным для человека"
+            imageProps={{
+              src: workspace,
+              preview: false,
+            }}
+          />
+
+          <TextImageLayout 
+            text="Какой-то текст содержащий описание или еще что то типа, что может быть полезным для человека"
+            imageProps={{
+              src: workspace,
+              preview: false,
+            }}
+            imageRight
           />
         </AppContent>
         <AppFooter />

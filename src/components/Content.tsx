@@ -5,10 +5,12 @@ const { Content } = Layout;
 
 const contentStyle: React.CSSProperties = {
   display: 'flex',
+  flexDirection: 'column',
   flexGrow: '1',
   height: '100%',
   width: '100%',
   justifyContent: 'start',
+  rowGap: '32px',
 }
 
 interface AppContentProps {
