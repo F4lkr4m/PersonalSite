@@ -31,12 +31,12 @@ const imageTextStyle: React.CSSProperties = {
   color: 'white',
 }
 
-interface PhotoBackgroundProps {
+interface ImageBackgroundProps {
   title?: string,
   src?: string, 
 }
 
-export const PhotoBackground: React.FC<PhotoBackgroundProps> = (props) => {
+export const ImageBackground: React.FC<ImageBackgroundProps> = (props) => {
   const { title, src } = props;
 
   return (

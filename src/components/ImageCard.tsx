@@ -6,13 +6,13 @@ const defaultImageStyle: React.CSSProperties = {
   width: '400px',
 }
 
-export interface PhotoCardProps extends ImageProps {
+export interface ImageCardProps extends ImageProps {
   src?: string;
   imageStyle?: React.CSSProperties;
 }
 
 
-export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
+export const ImageCard: React.FC<ImageCardProps> = (props) => {
   const { src, imageStyle } = props;
 
   return (

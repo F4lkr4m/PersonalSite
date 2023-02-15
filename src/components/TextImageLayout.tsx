@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from 'antd';
-import { PhotoCard, PhotoCardProps } from './PhotoCard';
+import { ImageCard, ImageCardProps } from './ImageCard';
 import { H4_LEVEL } from '../constants';
 
 const { Title } = Typography;
@@ -15,7 +15,7 @@ const textImageContainerStyle: React.CSSProperties = {
 interface TextImageLayoutProps {
   text?: string;
   imageRight?: boolean;
-  imageProps?: PhotoCardProps;
+  imageProps?: ImageCardProps;
 }
 
 export const TextImageLayout: React.FC<TextImageLayoutProps> = (props) => {
@@ -26,13 +26,13 @@ export const TextImageLayout: React.FC<TextImageLayoutProps> = (props) => {
     <div
       style={textImageContainerStyle}
     >
-      {imageRight && <PhotoCard {...imageProps}/>}
+      {imageRight && <ImageCard {...imageProps}/>}
       <Title
         level={H4_LEVEL}
       >
         {text}
       </Title>
-      {!imageRight && <PhotoCard {...imageProps}/>}
+      {!imageRight && <ImageCard {...imageProps}/>}
     </div>
   );
 }
