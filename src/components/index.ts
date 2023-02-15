@@ -4,3 +4,4 @@ export * from './Footer';
 export * from './ImageBackground';
 export * from './ImageCard';
 export * from './TextImageLayout';
+export * from './ParagraphBlock';

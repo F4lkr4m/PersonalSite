@@ -1,7 +1,7 @@
 import React from 'react';
-import { Layout } from 'antd'
+import { Divider, Layout } from 'antd'
 import { DESKTOP_DISPLAY_WIDTH } from '@/constants';
-import { AppHeader, AppContent, AppFooter, ImageBackground, ImageCard, TextImageLayout } from '@/components';
+import { AppHeader, AppContent, AppFooter, ImageBackground, ImageCard, TextImageLayout, ParagraphBlock } from '@/components';
 import workspace from '@/assets/workspace.jpg';
 
 
@@ -44,6 +44,11 @@ const App = () => {
               preview: false,
             }}
             imageRight
+          />
+          <Divider />
+          <ParagraphBlock
+            title="Какой то ебейший заголовок"
+            text="Текст содержащий описание, какой я ахуенный и крутой программист и что я являют гуру фронтенда и вообще очень классный и кудрявый парень"
           />
         </AppContent>
         <AppFooter />
