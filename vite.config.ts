@@ -25,6 +25,10 @@ export default defineConfig({
         {
           find: '@/components',
           replacement: resolve(projectRootDir, 'src/components'),
+        },
+        {
+          find: '@/assets',
+          replacement: resolve(projectRootDir, 'src/assets'),
         }
       ]
     })

@@ -11,14 +11,19 @@ const contentStyle: React.CSSProperties = {
   justifyContent: 'start',
 }
 
-export const AppContent = () => {
+interface AppContentProps {
+  children?: JSX.Element
+}
+
+export const AppContent: React.FC<AppContentProps> = (props) => {
+  const { children } = props;
 
   return (
     <>
       <Content
         style={contentStyle}
       >
-        Какой-то контент
+        {children}
       </Content>
     </>
   );

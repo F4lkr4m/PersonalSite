@@ -1,7 +1,8 @@
 import React from 'react';
 import { Layout } from 'antd'
 import { DESKTOP_DISPLAY_WIDTH } from '@/constants';
-import { AppHeader, AppContent, AppFooter } from '@/components';
+import { AppHeader, AppContent, AppFooter, PhotoBackground } from '@/components';
+import workspace from '@/assets/workspace.jpg';
 
 
 const layoutStyle: React.CSSProperties = {
@@ -19,7 +20,12 @@ const App = () => {
         style={layoutStyle}
       >
         <AppHeader />
-        <AppContent />
+        <AppContent>
+          <PhotoBackground 
+            src={workspace}
+            title="Как-то супермега крутой заголовок, хватающий за душу"
+          />
+        </AppContent>
         <AppFooter />
       </Layout>
   )
