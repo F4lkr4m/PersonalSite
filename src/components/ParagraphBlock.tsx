@@ -16,11 +16,11 @@ const paragraphTextStyle = {
 
 interface ParagraphBlockProps {
   title?: string;
-  text?: string;
+  children?: JSX.Element | string;
 }
 
 export const ParagraphBlock: React.FC<ParagraphBlockProps> = (props) => {
-  const { title, text } = props; 
+  const { title, children } = props; 
 
 
   return (
@@ -35,7 +35,7 @@ export const ParagraphBlock: React.FC<ParagraphBlockProps> = (props) => {
       <Paragraph
         style={paragraphTextStyle}
       >
-        {text}
+        {children}
       </Paragraph>
     </div>
   );
