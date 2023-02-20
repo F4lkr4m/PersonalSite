@@ -1,9 +1,9 @@
-import React from 'react';
-import { Typography } from 'antd';
-import { ImageCard, ImageCardProps } from './ImageCard';
-import { H4_LEVEL } from '../constants';
+import React from 'react'
+import { Typography } from 'antd'
+import { ImageCard, ImageCardProps } from './ImageCard'
+import { H4_LEVEL } from '../constants'
 
-const { Title } = Typography;
+const { Title } = Typography
 
 const textImageContainerStyle: React.CSSProperties = {
   display: 'flex',
@@ -13,14 +13,14 @@ const textImageContainerStyle: React.CSSProperties = {
 }
 
 interface TextImageLayoutProps {
-  children?: JSX.Element | string;
-  imageRight?: boolean;
-  imageProps?: ImageCardProps;
-  style?: React.CSSProperties;
+  children?: JSX.Element | string
+  imageRight?: boolean
+  imageProps?: ImageCardProps
+  style?: React.CSSProperties
 }
 
 export const TextImageLayout: React.FC<TextImageLayoutProps> = (props) => {
-  const { children, style ={}, imageProps = {}, imageRight = false } = props;
+  const { children, style = {}, imageProps = {}, imageRight = false } = props
 
   return (
     <div
@@ -29,19 +29,10 @@ export const TextImageLayout: React.FC<TextImageLayoutProps> = (props) => {
         ...style,
       }}
     >
-      {imageRight && <ImageCard {...imageProps}/>}
-      {typeof children === 'string' 
-      ? (
-        <Title
-          level={H4_LEVEL}
-        >
-          {children}
-        </Title>
-      )
-      : children
-      }
+      {imageRight && <ImageCard {...imageProps} />}
+      {typeof children === 'string' ? <Title level={H4_LEVEL}>{children}</Title> : children}
 
-      {!imageRight && <ImageCard {...imageProps}/>}
+      {!imageRight && <ImageCard {...imageProps} />}
     </div>
-  );
+  )
 }

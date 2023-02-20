@@ -1,15 +1,15 @@
-import React from 'react';
-import { Layout } from 'antd';
-import Icon from '@ant-design/icons';
-import { Typography } from 'antd';
-import { ReactComponent as vkIcon } from 'assets/vk-icon.svg';
-import { ReactComponent as telegramIcon } from 'assets/telegram-icon.svg';
-import { ReactComponent as githubIcon } from 'assets/github-icon.svg';
+import React from 'react'
+import { Layout } from 'antd'
+import Icon from '@ant-design/icons'
+import { Typography } from 'antd'
+import { ReactComponent as vkIcon } from 'assets/vk-icon.svg'
+import { ReactComponent as telegramIcon } from 'assets/telegram-icon.svg'
+import { ReactComponent as githubIcon } from 'assets/github-icon.svg'
 
-const { Text } = Typography;
+const { Text } = Typography
 interface ContactIcon {
-  component: React.FC<React.SVGProps<SVGSVGElement>>,
-  href: string,
+  component: React.FC<React.SVGProps<SVGSVGElement>>
+  href: string
 }
 
 const contactIcons: ContactIcon[] = [
@@ -19,12 +19,12 @@ const contactIcons: ContactIcon[] = [
   },
   {
     component: telegramIcon,
-    href: 'https://telegram.org'
+    href: 'https://telegram.org',
   },
   {
     component: githubIcon,
     href: 'https://github.com',
-  }
+  },
 ]
 
 const iconStyle: React.CSSProperties = {
@@ -46,39 +46,29 @@ const contactButtonsContainter: React.CSSProperties = {
   columnGap: '12px',
 }
 
-const { Footer } = Layout;
+const { Footer } = Layout
 
 export const AppFooter = () => {
-
-
   return (
     <>
-      <Footer
-        style={footerStyle}
-      >
-        <Text>
-          Made by Shcherbakov
-        </Text>
-        <div
-          style={contactButtonsContainter}
-        >
-          {
-            contactIcons.map((icon) => {
-              const routeToHref = () => {
-                window.open(icon.href);
-              }
+      <Footer style={footerStyle}>
+        <Text>Made by Shcherbakov</Text>
+        <div style={contactButtonsContainter}>
+          {contactIcons.map((icon) => {
+            const routeToHref = () => {
+              window.open(icon.href)
+            }
 
-              return (
-                <Icon
-                  style={iconStyle}
-                  onClick={routeToHref}
-                  component={icon.component}
-                />
-              );
-            })
-          }
+            return (
+              <Icon
+                style={iconStyle}
+                onClick={routeToHref}
+                component={icon.component}
+              />
+            )
+          })}
         </div>
       </Footer>
     </>
-  ) 
+  )
 }

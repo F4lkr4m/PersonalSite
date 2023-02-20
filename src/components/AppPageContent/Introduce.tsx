@@ -1,25 +1,23 @@
-import React from 'react';
-import { TextImageLayout } from '@/components';
-import { Button, Typography } from 'antd';
-import { DownloadOutlined, UserOutlined } from '@ant-design/icons';
-import workspace from '@/assets/workspace.jpg';
+import React from 'react'
+import { TextImageLayout } from '@/components'
+import { Button, Typography } from 'antd'
+import { DownloadOutlined, UserOutlined } from '@ant-design/icons'
+import workspace from '@/assets/workspace.jpg'
 
-const { Text } = Typography;
-
+const { Text } = Typography
 
 export const Introduce = () => {
-
   return (
-    <TextImageLayout 
+    <TextImageLayout
       imageProps={{
         src: workspace,
         preview: false,
         style: {
-          borderRadius:'50%',
+          borderRadius: '50%',
           width: '300px',
           height: '300px',
           objectFit: 'cover',
-        }
+        },
       }}
       style={{
         alignItems: 'center',
@@ -64,5 +62,5 @@ export const Introduce = () => {
         </div>
       </div>
     </TextImageLayout>
-  );
+  )
 }

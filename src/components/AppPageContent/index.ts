@@ -1,2 +1,2 @@
-export * from './Introduce';
-export * from './Skills';
+export * from './Introduce'
+export * from './Skills'

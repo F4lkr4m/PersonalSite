@@ -1,7 +1,7 @@
-import React from 'react';
-import { Layout } from 'antd';
+import React from 'react'
+import { Layout } from 'antd'
 
-const { Content } = Layout;
+const { Content } = Layout
 
 const contentStyle = {
   display: 'flex',
@@ -18,15 +18,11 @@ interface AppContentProps {
 }
 
 export const AppContent: React.FC<AppContentProps> = (props) => {
-  const { children } = props;
+  const { children } = props
 
   return (
     <>
-      <Content
-        style={contentStyle}
-      >
-        {children}
-      </Content>
+      <Content style={contentStyle}>{children}</Content>
     </>
-  );
+  )
 }

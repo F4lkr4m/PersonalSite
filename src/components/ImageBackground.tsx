@@ -1,8 +1,8 @@
-import React from 'react';
-import { Image } from 'antd';
-import { Typography } from 'antd';
+import React from 'react'
+import { Image } from 'antd'
+import { Typography } from 'antd'
 
-const { Title } = Typography;
+const { Title } = Typography
 
 const imageContainerStyle: React.CSSProperties = {
   width: '100%',
@@ -13,7 +13,7 @@ const imageContainerStyle: React.CSSProperties = {
 const imageStyle: React.CSSProperties = {
   width: '100%',
   borderRadius: '16px',
-  filter: 'brightness(40%)'
+  filter: 'brightness(40%)',
 }
 
 const imageTextContainerStyle: React.CSSProperties = {
@@ -32,31 +32,23 @@ const imageTextStyle: React.CSSProperties = {
 }
 
 interface ImageBackgroundProps {
-  title?: string,
-  src?: string, 
+  title?: string
+  src?: string
 }
 
 export const ImageBackground: React.FC<ImageBackgroundProps> = (props) => {
-  const { title, src } = props;
+  const { title, src } = props
 
   return (
-    <div
-      style={imageContainerStyle}
-    >
-      <Image 
+    <div style={imageContainerStyle}>
+      <Image
         style={imageStyle}
         src={src}
         preview={false}
       />
-      <div
-        style={imageTextContainerStyle}
-      >
-        <Title
-          style={imageTextStyle}
-        >
-          {title}
-        </Title>
+      <div style={imageTextContainerStyle}>
+        <Title style={imageTextStyle}>{title}</Title>
       </div>
     </div>
-  );
+  )
 }

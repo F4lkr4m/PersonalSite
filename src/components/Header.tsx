@@ -1,13 +1,11 @@
-import React from 'react';
-import { Layout } from 'antd';
-import Icon from '@ant-design/icons';
-import { ReactComponent as brackets } from '@/assets/window-code.svg';
-import Title from 'antd/es/typography/Title';
-import { H3_LEVEL } from 'consts';
+import React from 'react'
+import { Layout } from 'antd'
+import Icon from '@ant-design/icons'
+import { ReactComponent as brackets } from '@/assets/window-code.svg'
+import Title from 'antd/es/typography/Title'
+import { H3_LEVEL } from 'consts'
 
-
-
-const { Header } = Layout;
+const { Header } = Layout
 
 const headerStyle: React.CSSProperties = {
   backgroundColor: 'transparent',
@@ -22,25 +20,22 @@ const headerTitleStyle: React.CSSProperties = {
 }
 
 export const AppHeader = () => {
-
   return (
     <>
-      <Header 
-          style={headerStyle}
+      <Header style={headerStyle}>
+        <Icon
+          style={{
+            fontSize: '36px',
+          }}
+          component={brackets}
+        />
+        <Title
+          level={H3_LEVEL}
+          style={headerTitleStyle}
         >
-          <Icon
-            style={{
-              fontSize: '36px'
-            }}
-            component={brackets}
-          />
-          <Title
-            level={H3_LEVEL}
-            style={headerTitleStyle}
-          >
-            Shcherbakov
-          </Title>
-        </Header>
+          Shcherbakov
+        </Title>
+      </Header>
     </>
-  );
+  )
 }

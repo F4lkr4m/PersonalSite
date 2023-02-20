@@ -1,5 +1,5 @@
-import React from 'react';
-import { Image, ImageProps } from 'antd';
+import React from 'react'
+import { Image, ImageProps } from 'antd'
 
 const defaultImageStyle: React.CSSProperties = {
   borderRadius: '12px',
@@ -7,17 +7,16 @@ const defaultImageStyle: React.CSSProperties = {
 }
 
 export interface ImageCardProps extends ImageProps {
-  src?: string;
-  imageStyle?: React.CSSProperties;
+  src?: string
+  imageStyle?: React.CSSProperties
 }
 
-
 export const ImageCard: React.FC<ImageCardProps> = (props) => {
-  const { src, imageStyle } = props;
+  const { src, imageStyle } = props
 
   return (
     <>
-      <Image 
+      <Image
         src={src}
         style={{
           ...defaultImageStyle,
@@ -26,5 +25,5 @@ export const ImageCard: React.FC<ImageCardProps> = (props) => {
         {...props}
       />
     </>
-  );
+  )
 }

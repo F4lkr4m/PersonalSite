@@ -1,9 +1,9 @@
-export * from './Header';
-export * from './Content';
-export * from './Footer';
-export * from './ImageBackground';
-export * from './ImageCard';
-export * from './TextImageLayout';
-export * from './ParagraphBlock';
+export * from './Header'
+export * from './Content'
+export * from './Footer'
+export * from './ImageBackground'
+export * from './ImageCard'
+export * from './TextImageLayout'
+export * from './ParagraphBlock'
 
-export * from './AppPageContent';
+export * from './AppPageContent'

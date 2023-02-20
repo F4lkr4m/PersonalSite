@@ -1,19 +1,23 @@
 @font-face {
-  font-family: "FiraSans";
-  src: url("assets/FiraSans-Regular.ttf") format("truetype");
+  font-family: 'FiraSans';
+  src: url('assets/FiraSans-Regular.ttf') format('truetype');
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 0;
 }
 
-html, 
+html,
 body {
   margin: 0;
 }
 
-body *{
-  font-family: "FiraSans", sans-serif;
+body * {
+  font-family: 'FiraSans', sans-serif;
 }
 
 #root {
