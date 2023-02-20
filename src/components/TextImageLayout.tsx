@@ -16,22 +16,31 @@ interface TextImageLayoutProps {
   children?: JSX.Element | string;
   imageRight?: boolean;
   imageProps?: ImageCardProps;
+  style?: React.CSSProperties;
 }
 
 export const TextImageLayout: React.FC<TextImageLayoutProps> = (props) => {
-  const { children, imageProps = {}, imageRight = false } = props;
-
+  const { children, style ={}, imageProps = {}, imageRight = false } = props;
 
   return (
     <div
-      style={textImageContainerStyle}
+      style={{
+        ...textImageContainerStyle,
+        ...style,
+      }}
     >
       {imageRight && <ImageCard {...imageProps}/>}
-      <Title
-        level={H4_LEVEL}
-      >
-        {children}
-      </Title>
+      {typeof children === 'string' 
+      ? (
+        <Title
+          level={H4_LEVEL}
+        >
+          {children}
+        </Title>
+      )
+      : children
+      }
+
       {!imageRight && <ImageCard {...imageProps}/>}
     </div>
   );
