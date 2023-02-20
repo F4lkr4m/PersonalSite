@@ -5,3 +5,5 @@ export * from './ImageBackground';
 export * from './ImageCard';
 export * from './TextImageLayout';
 export * from './ParagraphBlock';
+
+export * from './AppPageContent';
