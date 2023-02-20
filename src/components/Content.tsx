@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 
 const { Content } = Layout;
 
-const contentStyle: React.CSSProperties = {
+const contentStyle = {
   display: 'flex',
   flexDirection: 'column',
   flexGrow: '1',
