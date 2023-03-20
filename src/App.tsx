@@ -14,6 +14,8 @@ import {
   Introduce,
 } from '@/components'
 import workspace from '@/assets/workspace.jpg'
+import { WorkExperience } from 'components/AppPageContent/WorkExperience'
+import { Training } from 'components/AppPageContent/Training'
 
 const layoutStyle: React.CSSProperties = {
   width: DESKTOP_DISPLAY_WIDTH,
@@ -31,23 +33,15 @@ const App = () => {
         <>
           <Introduce />
           <Skills />
-
-          <ImageBackground
-            src={workspace}
-            title="Как-то супермега крутой заголовок, хватающий за душу"
-          />
+          <Divider style={{ margin: '0' }} />
+          <WorkExperience />
+          <Divider style={{ margin: '0' }} />
+          <Training />
           <ImageCard
             src={workspace}
             preview={false}
           />
-          <TextImageLayout
-            imageProps={{
-              src: workspace,
-              preview: false,
-            }}
-          >
-            Какой-то текст содержащий описание или еще что то типа, что может быть полезным для человека
-          </TextImageLayout>
+
           <TextImageLayout
             imageProps={{
               src: workspace,

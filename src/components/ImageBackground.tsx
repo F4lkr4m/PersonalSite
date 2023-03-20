@@ -22,22 +22,29 @@ const imageTextContainerStyle: React.CSSProperties = {
   height: '100%',
   top: 0,
   display: 'flex',
-  alignItems: 'start',
-  justifyContent: 'center',
+  flexDirection: 'column',
+  alignItems: 'between',
+  justifyContent: 'space-between',
   padding: '26px 20px',
 }
 
 const imageTextStyle: React.CSSProperties = {
   color: 'white',
+  fontSize: '56px',
 }
 
+const authorTextStyle: React.CSSProperties = {
+  color: 'white',
+  textAlign: 'end',
+}
 interface ImageBackgroundProps {
   title?: string
+  author?: string
   src?: string
 }
 
 export const ImageBackground: React.FC<ImageBackgroundProps> = (props) => {
-  const { title, src } = props
+  const { title, src, author } = props
 
   return (
     <div style={imageContainerStyle}>
@@ -48,6 +55,7 @@ export const ImageBackground: React.FC<ImageBackgroundProps> = (props) => {
       />
       <div style={imageTextContainerStyle}>
         <Title style={imageTextStyle}>{title}</Title>
+        <Title style={authorTextStyle}>{author}</Title>
       </div>
     </div>
   )
