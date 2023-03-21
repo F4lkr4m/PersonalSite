@@ -50,12 +50,21 @@ export const Introduce = () => {
           <Button
             size="large"
             icon={<UserOutlined />}
+            onClick={() => {
+              const contacts = document.getElementById('contacts')
+              contacts?.scrollIntoView({
+                behavior: 'smooth',
+              })
+            }}
           >
             Контакты
           </Button>
           <Button
             size="large"
             icon={<DownloadOutlined />}
+            onClick={() => {
+              window.open('https://hh.ru/applicant/resumes/view?resume=9db29278ff0bd26a740039ed1f72437466416b')
+            }}
           >
             Резюме
           </Button>

@@ -14,13 +14,13 @@ const textImageContainerStyle: React.CSSProperties = {
 
 interface TextImageLayoutProps {
   children?: JSX.Element | string
-  imageRight?: boolean
+  imageLeft?: boolean
   imageProps?: ImageCardProps
   style?: React.CSSProperties
 }
 
 export const TextImageLayout: React.FC<TextImageLayoutProps> = (props) => {
-  const { children, style = {}, imageProps = {}, imageRight = false } = props
+  const { children, style = {}, imageProps = {}, imageLeft = false } = props
 
   return (
     <div
@@ -29,10 +29,9 @@ export const TextImageLayout: React.FC<TextImageLayoutProps> = (props) => {
         ...style,
       }}
     >
-      {imageRight && <ImageCard {...imageProps} />}
+      {imageLeft && <ImageCard {...imageProps} />}
       {typeof children === 'string' ? <Title level={H4_LEVEL}>{children}</Title> : children}
-
-      {!imageRight && <ImageCard {...imageProps} />}
+      {!imageLeft && <ImageCard {...imageProps} />}
     </div>
   )
 }

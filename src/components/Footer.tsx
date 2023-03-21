@@ -14,16 +14,12 @@ interface ContactIcon {
 
 const contactIcons: ContactIcon[] = [
   {
-    component: vkIcon,
-    href: 'https://vk.ru',
-  },
-  {
     component: telegramIcon,
-    href: 'https://telegram.org',
+    href: 'https://t.me/Falkr4m',
   },
   {
     component: githubIcon,
-    href: 'https://github.com',
+    href: 'https://github.com/F4lkr4m',
   },
 ]
 

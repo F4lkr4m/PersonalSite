@@ -16,6 +16,9 @@ import {
 import workspace from '@/assets/workspace.jpg'
 import { WorkExperience } from 'components/AppPageContent/WorkExperience'
 import { Training } from 'components/AppPageContent/Training'
+import { Graduate } from 'components/AppPageContent/Graduate'
+import { Motivation } from 'components/AppPageContent/Motivation'
+import { Contacts } from 'components/AppPageContent/Contacts'
 
 const layoutStyle: React.CSSProperties = {
   width: DESKTOP_DISPLAY_WIDTH,
@@ -37,25 +40,12 @@ const App = () => {
           <WorkExperience />
           <Divider style={{ margin: '0' }} />
           <Training />
-          <ImageCard
-            src={workspace}
-            preview={false}
-          />
-
-          <TextImageLayout
-            imageProps={{
-              src: workspace,
-              preview: false,
-            }}
-            imageRight
-          >
-            Какой-то текст содержащий описание или еще что то типа, что может быть полезным для человека
-          </TextImageLayout>
           <Divider style={{ margin: '0' }} />
-          <ParagraphBlock title="Какой то ебейший заголовок">
-            Текст содержащий описание, какой я ахуенный и крутой программист и что я являют гуру фронтенда и вообще
-            очень классный и кудрявый парень
-          </ParagraphBlock>
+          <Graduate />
+          <Divider style={{ margin: '0' }} />
+          <Motivation />
+          <Divider style={{ margin: '0' }} />
+          <Contacts />
         </>
       </AppContent>
       <AppFooter />

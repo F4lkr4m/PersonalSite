@@ -30,7 +30,7 @@ export const WorkExperience = () => {
               src: workspace,
               preview: false,
             }}
-            imageRight
+            imageLeft
           >
             <div>
               <Title
