@@ -3,7 +3,7 @@ import { Layout } from 'antd'
 
 const { Content } = Layout
 
-const contentStyle = {
+const contentStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   flexGrow: '1',
@@ -20,9 +20,5 @@ interface AppContentProps {
 export const AppContent: React.FC<AppContentProps> = (props) => {
   const { children } = props
 
-  return (
-    <>
-      <Content style={contentStyle}>{children}</Content>
-    </>
-  )
+  return <Content style={contentStyle}>{children}</Content>
 }
