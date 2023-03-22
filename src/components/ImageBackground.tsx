@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image } from 'antd'
 import { Typography } from 'antd'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 const { Title } = Typography
 
@@ -28,15 +29,6 @@ const imageTextContainerStyle: React.CSSProperties = {
   padding: '26px 20px',
 }
 
-const imageTextStyle: React.CSSProperties = {
-  color: 'white',
-  fontSize: '56px',
-}
-
-const authorTextStyle: React.CSSProperties = {
-  color: 'white',
-  textAlign: 'end',
-}
 interface ImageBackgroundProps {
   title?: string
   author?: string
@@ -45,6 +37,18 @@ interface ImageBackgroundProps {
 
 export const ImageBackground: React.FC<ImageBackgroundProps> = (props) => {
   const { title, src, author } = props
+  const isMobile = useIsMobile()
+
+  const imageTextStyle: React.CSSProperties = {
+    color: 'white',
+    fontSize: isMobile ? '24px' : '56px',
+  }
+
+  const authorTextStyle: React.CSSProperties = {
+    color: 'white',
+    textAlign: 'end',
+    fontSize: isMobile ? '18px' : '36px',
+  }
 
   return (
     <div style={imageContainerStyle}>

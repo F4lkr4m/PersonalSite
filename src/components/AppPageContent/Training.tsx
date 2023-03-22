@@ -1,7 +1,8 @@
 import React from 'react'
 import { ParagraphBlock, TextImageLayout } from '..'
 import { Divider, Typography } from 'antd'
-import workspace from '@/assets/workspace.jpg'
+import park from '@/assets/park.jpg'
+import mgtu from '@/assets/mgtu.jpg'
 import { H4_LEVEL } from '@/constants'
 
 const { Title, Paragraph } = Typography
@@ -12,7 +13,7 @@ export const Training = () => {
       <>
         <TextImageLayout
           imageProps={{
-            src: workspace,
+            src: park,
             preview: false,
           }}
         >
@@ -32,7 +33,7 @@ export const Training = () => {
         <Divider />
         <TextImageLayout
           imageProps={{
-            src: workspace,
+            src: mgtu,
             preview: false,
           }}
           imageLeft

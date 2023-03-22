@@ -2,20 +2,23 @@ import React from 'react'
 import { TextImageLayout } from '@/components'
 import { Button, Typography } from 'antd'
 import { DownloadOutlined, UserOutlined } from '@ant-design/icons'
-import workspace from '@/assets/workspace.jpg'
+import iam from '@/assets/iam.jpg'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 const { Text } = Typography
 
 export const Introduce = () => {
+  const isMobile = useIsMobile()
+
   return (
     <TextImageLayout
       imageProps={{
-        src: workspace,
+        src: iam,
         preview: false,
         style: {
           borderRadius: '50%',
-          width: '300px',
-          height: '300px',
+          width: isMobile ? '200px' : '300px',
+          height: isMobile ? '200px' : '300px',
           objectFit: 'cover',
         },
       }}

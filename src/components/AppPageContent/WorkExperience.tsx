@@ -1,7 +1,7 @@
 import React from 'react'
 import { ParagraphBlock } from '..'
 import { TextImageLayout } from '..'
-import workspace from '@/assets/workspace.jpg'
+import ppdp from '@/assets/ppdp.svg'
 import { Divider, Typography } from 'antd'
 import { H4_LEVEL } from '@/constants'
 
@@ -27,8 +27,17 @@ export const WorkExperience = () => {
         <>
           <TextImageLayout
             imageProps={{
-              src: workspace,
+              src: ppdp,
               preview: false,
+              style: {
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100%',
+                backgroundColor: '#303030',
+                padding: '10px',
+                borderRadius: '12px',
+              },
             }}
             imageLeft
           >
