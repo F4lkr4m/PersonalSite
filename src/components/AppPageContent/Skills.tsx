@@ -10,7 +10,7 @@ export const Skills = () => {
           <ul>
             <li>Обладаю глубокими знаниями Vanilla JavaScript, а также пишу код на TypeScript;</li>
             <li>
-              Имею опыт использования таких библиотек как React, Redux, Redux-Thunk, React Final Form, Immutable.js; А
+              Имею опыт использования таких библиотек как React, Redux, Redux-Thunk, React Final Form, Immutable.js. А
               также опыт использования библиотек UI-компонентов: AntDesign, PrimeReact;
             </li>
             <li>
