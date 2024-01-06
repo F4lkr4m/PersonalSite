@@ -1,9 +1,11 @@
 import React from 'react'
 import { ParagraphBlock } from '..'
 import { TextImageLayout } from '..'
-import ppdp from '@/assets/ppdp.svg'
-import { Divider, Typography } from 'antd'
+
+import { Typography } from 'antd'
 import { H4_LEVEL } from '@/constants'
+import { differenceInCalendarMonths, differenceInMonths, isBefore } from 'date-fns'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 const { Title, Text, Paragraph } = Typography
 
@@ -20,73 +22,195 @@ const EmployerWorkDescription: React.CSSProperties = {
   fontSize: '16px',
 }
 
-export const WorkExperience = () => {
+interface WorkExperienceDates {
+  begin: Date
+  end?: Date
+}
+
+export interface WorkExperienceProps {
+  title?: string
+  dates?: WorkExperienceDates
+  responsibilities?: string[]
+  description?: string
+  values?: string[]
+  stack?: string
+  img?: string
+}
+
+const indexToMonth = [
+  'Январь',
+  'Февраль',
+  'Март',
+  'Апрель',
+  'Май',
+  'Июнь',
+  'Июль',
+  'Август',
+  'Сентябрь',
+  'Октябрь',
+  'Ноябрь',
+  'Декабрь',
+]
+
+const nounGetter = (one: string, two: string, five: string) => {
+  return (number: number) => {
+    let n = Math.abs(number)
+    n %= 100
+    if (n >= 5 && n <= 20) {
+      return five
+    }
+    n %= 10
+    if (n === 1) {
+      return one
+    }
+    if (n >= 2 && n <= 4) {
+      return two
+    }
+    return five
+  }
+}
+
+const getYearsNoun = nounGetter('год', 'года', 'лет')
+const getMonthsNoun = nounGetter('месяц', 'месяца', 'месяцев')
+
+const getWorkExperience = (dates: WorkExperienceDates) => {
+  const { begin, end } = dates
+
+  const endDate = end ?? new Date()
+
+  const diff = differenceInCalendarMonths(endDate, begin)
+  const months = diff % 12
+  const years = Math.floor(diff / 12)
+
+  const yearsString = `${years} ${getYearsNoun(years)}`
+  const monthsString = `${months} ${getMonthsNoun(months)}`
+  const beginMonth = begin.getMonth()
+
+  const beginEndString = `${indexToMonth[beginMonth]} ${begin.getFullYear()} - ${
+    end ? `${indexToMonth[end.getMonth()]} ${end.getFullYear()}` : 'По наст. время'
+  }`
+
+  switch (true) {
+    case Boolean(years && months):
+      return `${yearsString} ${monthsString} / ${beginEndString}`
+    case Boolean(years):
+      return `${yearsString} / ${beginEndString}`
+    case Boolean(months):
+      return `${monthsString} / ${beginEndString}`
+  }
+}
+
+export interface WorkExperiencesProps {
+  experiences: WorkExperienceProps[]
+}
+
+export const WorkExperiences = ({ experiences }: WorkExperiencesProps) => {
+  const beginDate = experiences.reduce((acc, experience) => {
+    const { dates } = experience
+    const { begin } = dates ?? {}
+    if (!begin) {
+      return acc
+    }
+
+    if (isBefore(begin, acc)) {
+      return begin
+    }
+
+    return acc
+  }, new Date())
+
+  const summaryWorkExperienceInMonths = differenceInCalendarMonths(new Date(), beginDate)
+  const months = summaryWorkExperienceInMonths % 12
+  const years = Math.floor(summaryWorkExperienceInMonths / 12)
+  const summaryExperienceTitle = `Опыт работы: ${years} ${getYearsNoun(years)} ${months} ${getMonthsNoun(months)}`
+
   return (
-    <>
-      <ParagraphBlock title="Опыт работы: 1 год 2 месяца">
-        <>
-          <TextImageLayout
-            imageProps={{
-              src: ppdp,
-              preview: false,
-              style: {
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                height: '100%',
-                backgroundColor: '#303030',
-                padding: '10px',
-                borderRadius: '12px',
-              },
-            }}
-            imageLeft
-          >
-            <div>
-              <Title
-                style={EmployerTitle}
-                level={H4_LEVEL}
-              >
-                АО П.ЦП - Фронтенд разработчик
-              </Title>
-              <Text
-                style={EmployerTextExperience}
-                type="secondary"
-              >
-                1 год 2 месяца
-              </Text>
-              <Paragraph style={EmployerWorkDescription}>
-                <div>
-                  <div style={{ fontSize: '18px', fontWeight: '600' }}>Обязанности:</div>
-                  - Разработка информационных систем <br />
-                  - Разработка тестов своего кода
-                  <br />
-                  - Оформление технической документации сборки и тестирование своего кода
-                  <br />
-                  - Проведение ревью кода других разработчиков
-                  <br />
-                </div>
-              </Paragraph>
-            </div>
-          </TextImageLayout>
-          <div>
-            <div style={{ marginTop: '12px', fontSize: '18px', fontWeight: '600' }}>На рабочем месте я:</div>
-            <ul>
-              <li>
-                Разрабатывал сложные пользовательские интерфейсы, включающих в себя: формы длиной в несколько экранов с
-                использованием react-final-form, таймлайны из нескольких страниц, сложные структуры данных для обработки
-                и отображения;
-              </li>
-              <li>Занимался оптимизацией рендеринга существующих страниц и конфигурацией сборки бандла webpack;</li>
-              <li>Реализовывал новые функции, планировал архитектуру, а также переписывал проекты на typescript;</li>
-              <li>
-                Написал скрипты для обновления и выкатки новых версий проектов, что позволило фронтенд команде
-                доставлять новые версии на 60% быстрее.
-              </li>
-            </ul>
-            Стек: React, Redux, Redux-thunk, Immutable, react-final-form, primereact, webpack, eslint
-          </div>
-        </>
-      </ParagraphBlock>
-    </>
+    <ParagraphBlock title={summaryExperienceTitle}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '24px',
+        }}
+      >
+        {experiences.map((experience) => (
+          <WorkExperience
+            key={experience.title}
+            {...experience}
+          />
+        ))}
+      </div>
+    </ParagraphBlock>
+  )
+}
+
+const WorkExperience = (props: WorkExperienceProps) => {
+  const { title, dates, responsibilities, values, stack, img, description } = props
+  const workExperienceString = dates ? getWorkExperience(dates) : ''
+  const isMobile = useIsMobile()
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <TextImageLayout
+        imageProps={{
+          src: img,
+          preview: false,
+          style: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100%',
+            width: isMobile ? '100%' : '320px',
+            backgroundColor: '#303030',
+            padding: '10px',
+            borderRadius: '12px',
+          },
+        }}
+        imageLeft
+      >
+        <div>
+          {title && (
+            <Title
+              style={EmployerTitle}
+              level={H4_LEVEL}
+            >
+              {title}
+            </Title>
+          )}
+          {workExperienceString && (
+            <Text
+              style={EmployerTextExperience}
+              type="secondary"
+            >
+              {workExperienceString}
+            </Text>
+          )}
+          {description && <div>{description}</div>}
+          {responsibilities?.length && (
+            <Paragraph style={EmployerWorkDescription}>
+              <div>
+                <div style={{ fontSize: '18px', fontWeight: '600' }}>Обязанности:</div>
+                {responsibilities.map((responsibility) => (
+                  <>
+                    - {responsibility} <br />
+                  </>
+                ))}
+              </div>
+            </Paragraph>
+          )}
+        </div>
+      </TextImageLayout>
+      <div>
+        <div style={{ marginTop: '12px', fontSize: '18px', fontWeight: '600' }}>На рабочем месте я:</div>
+        {values?.length && (
+          <ul>
+            {values?.map((value) => (
+              <li>{value}</li>
+            ))}
+          </ul>
+        )}
+        {stack && <>Стек: {stack}</>}
+      </div>
+    </div>
   )
 }

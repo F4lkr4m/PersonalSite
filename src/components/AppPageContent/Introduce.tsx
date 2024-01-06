@@ -2,6 +2,7 @@ import React from 'react'
 import { TextImageLayout } from '@/components'
 import { Button, Typography } from 'antd'
 import { DownloadOutlined, UserOutlined } from '@ant-design/icons'
+import { RESUME_HREF } from '@/constants'
 import iam from '@/assets/iam.jpg'
 import { useIsMobile } from '@/hooks/useIsMobile'
 
@@ -66,7 +67,7 @@ export const Introduce = () => {
             size="large"
             icon={<DownloadOutlined />}
             onClick={() => {
-              window.open('https://hh.ru/applicant/resumes/view?resume=9db29278ff0bd26a740039ed1f72437466416b')
+              window.open(RESUME_HREF)
             }}
           >
             Резюме

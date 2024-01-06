@@ -1,8 +1,8 @@
 import React from 'react'
 import { Divider, Layout } from 'antd'
-import { DESKTOP_DISPLAY_WIDTH } from '@/constants'
+import { DESKTOP_DISPLAY_WIDTH, PPDP, SBER, MENTORING } from '@/constants'
 import { AppHeader, AppContent, AppFooter, Skills, Introduce } from '@/components'
-import { WorkExperience } from 'components/AppPageContent/WorkExperience'
+import { WorkExperienceProps, WorkExperiences } from 'components/AppPageContent/WorkExperience'
 import { Training } from 'components/AppPageContent/Training'
 import { Graduate } from 'components/AppPageContent/Graduate'
 import { Motivation } from 'components/AppPageContent/Motivation'
@@ -20,6 +20,8 @@ const App = () => {
     padding: isMobile ? '20px' : '10px',
   }
 
+  const experiences: WorkExperienceProps[] = [PPDP, SBER, MENTORING]
+
   return (
     <Layout style={layoutStyle}>
       <AppHeader />
@@ -28,7 +30,7 @@ const App = () => {
           <Introduce />
           <Skills />
           <Divider style={{ margin: '0' }} />
-          <WorkExperience />
+          <WorkExperiences experiences={experiences} />
           <Divider style={{ margin: '0' }} />
           <Training />
           <Divider style={{ margin: '0' }} />
