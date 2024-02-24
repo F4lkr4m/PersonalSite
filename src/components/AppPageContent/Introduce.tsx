@@ -40,9 +40,10 @@ export const Introduce = () => {
         <Text
           style={{
             fontSize: '26px',
+            whiteSpace: 'break-spaces',
           }}
         >
-          Привет! Меня зовут Сережа и я занимаюсь Frontend-разработкой!
+          {`Привет! Меня зовут Сережа и я\n Frontend-разработчик!`}
         </Text>
         <div
           style={{
